@@ -1,2 +1,9 @@
 
 基于jdbc 和 threadlocal 来手写 spring 事务 注解
+
+
+1， 每次从当前线程的threadlocal来获取connection
+
+2，通过AOP 来获取当前调用是否开启了自定义注解： @MyTransactional，如果没有，则不开启事务，否则开启事务
+
+3，通过controller来测试 不开启事务和开启事务2种情况下  插入数据的情况。
